@@ -1,0 +1,16 @@
+[Unit]
+Description=bot
+After=network.target
+
+[Service]
+Type=idle
+Restart=always
+RestartSec=5
+User=root
+WorkingDirectory=/root/bot
+ExecStart=/usr/bin/python3 /root/bot/app.py
+
+StandardOutput=file:/root/logs/bot.log
+
+[Install]
+WantedBy=multi-user.target

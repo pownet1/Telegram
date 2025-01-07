@@ -1,0 +1,16 @@
+[Unit]
+Description=Main
+After=network.target
+
+[Service]
+Type=idle
+Restart=always
+RestartSec=5
+User=root
+WorkingDirectory=/root
+ExecStart=/usr/local/bin/uvicorn main:app --reload
+
+StandardOutput=file:/root/logs/main.log
+
+[Install]
+WantedBy=multi-user.target

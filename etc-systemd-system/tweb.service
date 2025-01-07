@@ -1,0 +1,13 @@
+[Unit]
+Description=Telegram Web
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/tweb
+ExecStart=/usr/bin/npm run serve 3
+Restart=on-failure
+StandardOutput=file:/root/logs/tweb.log 
+
+[Install]
+WantedBy=multi-user.target
